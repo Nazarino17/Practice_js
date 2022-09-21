@@ -1,1 +1,0 @@
-# praktic_js
