@@ -1,0 +1,17 @@
+div{
+
+    background-color:rgb(160, 253, 196);
+    width: 200px;
+    margin: 10px;
+    height: 100px;
+    color: rgb(11, 11, 11);
+    outline: none;
+    border-radius: 10px;
+    border: 3px transparent solid;
+}
+
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+}
