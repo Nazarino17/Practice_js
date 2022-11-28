@@ -10,7 +10,7 @@ function londonCityHacker(journey) {
 
     }
 
-    return `${sum.toFixed(2)}`;
+    return `£${sum.toFixed(2)}`;
 }
 
 console.log(londonCityHacker([12, 'Central', 'Circle', 21]));
