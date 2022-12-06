@@ -45,6 +45,6 @@
 // console.log(splitAndMerge("My name is John","-"));
 
 
-const alienLanguage = (str) => str.split(' ').map( el => el.slice(0, -1).toUpperCase() + el.slice(-1).toLowerCase()).join('');
+const alienLanguage = (str) => str.split(' ').map( el => el.slice(0, -1).toUpperCase() + el.slice(-1).toLowerCase()).join(' ');
 
 console.log(alienLanguage("My name is John"));
