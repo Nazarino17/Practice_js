@@ -1,50 +1,78 @@
-// function filter_list(arr) {
-//     return arr.filter( item => typeof(item) !== 'string');
-// }
-// console.log(filter_list([12,2,'d','1']));
+function mostFrequentItemCount(collection) {
+    let maxCount = 0;
+    for (let i = 0; i < collection.length; i++) {
+        let count = 0;
+        for (let x = 0; x < collection.length; x++) {
+            if (collection[x] === collection[i]) count++;
+        }
+        if (count > maxCount) maxCount = count;
+    }
+    return maxCount;
+}
 
-// function filter_list(l) {
+console.log(mostFrequentItemCount([-1, 3, -1]));
 
-//     let res = [];
+//   function mostFrequentItemCount(collection) {
+//     let res = 0;
+//     let resOne = 0;
 
-//     for ( let i = 0; i < l.length; i++){
-//         if ( typeof l[i] == 'number') {
-//             res.push(l[i]);
+//     collection.map(x => {
+//         resOne = 0;
+//         collection.map(y => {
+//             if ( x == y ) {
+//                 resOne++;
+//             }
+//         })
+
+//         if ( resOne > res) {
+//             res = resOne;
 //         }
-//     }
+//     })
 //     return res;
 // }
 
-// console.log(filter_list([21,21,'efew','fwe'])); 
+function mostFrequentItemCount(collection) {
+    const countMap = new Map();
 
 
+    for (const item of collection) {
 
-// function solution(nums){
-//     if (nums !== null) return false;
-//     nums = nums.sort(function(a,b){ return a - b;});
-//     return nums;
-// }
+        const itemCount = countMap.get(item) || 0;
 
-// console.log(solution([1, 10, 2, 3, 5]));
+        countMap.set(item, itemCount + 1);
+    }
 
-let min = function(list){
-    let max = list[0];
-    for ( let i = 0; i < list.length; i++) {
-        if (list[i] < max) {
-            max = list[i];
-        }
-    }   
-    return max;
-}
-let max = function(list){
-    let max = list[0];
-    for ( let i = 0; i < list.length; i++) {
-        if (list[i] > max) {
-            max = list[i];
-        }
-    }   
-    return max;
+    const maxCount = Math.max(...countMap.values());
+
+
+    return maxCount;
 }
 
-console.log(max([31,4,1,6,888]));
-console.log(min([31,4,1,6,888]));
+
+console.log(mostFrequentItemCount([7, 1, 1]));
+
+
+
+function mostFrequentItemCount(collection) {
+    let count = 0,
+        frequentCount = 0;
+    //В начале процесса этот цикл FOR начинается с индекса 0 (let i)   
+    for (let i = 0; i < collection.length; i++) {
+        //Этот цикл FOR также начинается с индекса 0 (let j)
+        for (let j = 0; j < collection.length; j++) {
+            //let i остается на индексе 0, пока let j циклически проходит через весь массив, сравнивая каждое число в массиве с первым индексом (let i).
+            //если let i и let j когда-либо были одинаковыми, счетчик увеличивается.
+            if (collection[i] == collection[j]) {
+                count++;
+            }
+            //Если после циклического просмотра массива будет найдено новое более частое число, это число будет сохранено в frequentCount.
+            if (frequentCount < count) {
+                frequentCount = count;
+            }
+        }
+        //Счетчик затем сбрасывается. Процесс запускается снова
+        count = 0;
+    }
+    //Окончательный подсчет возвращается из функции
+    return frequentCount;
+}
