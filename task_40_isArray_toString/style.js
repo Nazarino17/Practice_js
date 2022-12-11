@@ -9,3 +9,4 @@ function blackAndWhite(arr){
 }
 
   console.log(blackAndWhite([5,13]));
+
